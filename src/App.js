@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import YTSSearch from 'youtube-api-search';
 import SearchBar from './components/search_bar';
@@ -21,12 +22,14 @@ class App extends Component {
     YTSSearch({key: API_KEY, term: term}, (videos) => {
       this.setState({
         videos,
-        selectedVideo: videos[0];
+        selectedVideo: videos[0],
       });
     });
   }
 
   render() {
+    const videoSearch = _.debounce((term) => { this.videoSearch(term)}, 500);
+
     return (
       <div className="App">
         <SearchBar onSearchTermChange={videoSearch} />
