@@ -5,22 +5,18 @@ import SearchBar from './components/SearchBar';
 import VideoList from './components/VideoList';
 import VideoDetail from './components/VideoDetail';
 
-const API_KEY = 'AIzaSyBkYZoFpfwQXBUXrhGGNEUGIMHYf-UXz7c';
-
 class App extends Component {
-  constructor(props) {
-    super(props);
+  state = {
+    videos: [],
+    selectedVideo: null,
+  };
 
-    this.state = {
-      videos: [],
-      selectedVideo: null,
-    };
-
+  componentDidMount() {
     this.videoSearch('surfboards');
   }
 
   videoSearch(term) {
-    YTSearch({key: API_KEY, term: term}, (videos) => {
+    YTSearch({key: process.env.REACT_APP_API_KEY, term: term}, (videos) => {
       this.setState({
         videos,
         selectedVideo: videos[0],
