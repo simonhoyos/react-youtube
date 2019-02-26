@@ -2,6 +2,19 @@
   "name": "youtube-api",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "clear": "rm -rf ./node_modules",
+    "start": "react-scripts start",
+    "prebuild": "rm -rf ./build",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "lint:css": "stylelint ./src",
+    "lint:js": "eslint ./src",
+    "lint": "npm-run-all lint:*",
+    "prettier:check": "prettier '**/*.{ts,tsx}' --list-different",
+    "prettier:fix": "prettier '**/*.{ts,tsx}' --write"
+  },
   "dependencies": {
     "lodash": "^4.17.11",
     "react": "^16.8.3",
@@ -9,26 +22,31 @@
     "youtube-api-search": "0.0.5"
   },
   "devDependencies": {
-    "eslint-plugin-flowtype": "^2.50.3",
+    "eslint": "^5.14.1",
+    "eslint-config-prettier": "^4.1.0",
+    "eslint-config-react-app": "^3.0.7",
+    "eslint-plugin-flowtype": "^3.4.2",
     "eslint-plugin-import": "^2.16.0",
     "eslint-plugin-jsx-a11y": "^6.2.1",
+    "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-react": "^7.12.4",
     "eslint-plugin-standard": "^3.1.0",
-    "react-scripts": "2.1.5"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
+    "flow-bin": "^0.93.0",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.4",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^1.16.4",
+    "react-scripts": "2.1.5",
+    "stylelint": "^9.10.1",
+    "stylelint-config-recommended": "^2.1.0",
+    "stylelint-config-styled-components": "^0.1.1",
+    "stylelint-order": "^2.0.0",
+    "stylelint-processor-styled-components": "^1.5.2"
   },
   "browserslist": [
     ">0.2%",
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ],
-  "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
+  ]
 }

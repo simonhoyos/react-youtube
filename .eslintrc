@@ -1,0 +1,47 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true,
+    "node": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:flowtype/recommended",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "plugin:jsx-a11y/recommended",
+    "plugin:react/recommended",
+    "prettier",
+    "prettier/react",
+    "react-app"
+  ],
+  "plugins": ["flowtype", "import", "jsx-a11y", "prettier", "react"],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2017
+  },
+  "rules": {
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "import/no-unresolved": 0,
+    "linebreak-style": ["error", "unix"],
+    "quotes": ["error", "single"],
+    "react/prop-types": 0,
+    "semi": ["error", "always"]
+  },
+  "settings": {
+    "react": {
+      "createClass": "createReactClass",
+      "pragma": "React",
+      "version": "15.0",
+      "flowVersion": "0.87"
+    },
+    "propWrapperFunctions": ["forbidExtraProps"]
+  }
+}
