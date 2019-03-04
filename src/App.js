@@ -16,7 +16,7 @@ class App extends Component {
   }
 
   videoSearch(term) {
-    YTSearch({key: process.env.REACT_APP_API_KEY, term: term}, (videos) => {
+    YTSearch({ key: process.env.REACT_APP_API_KEY, term: term }, videos => {
       this.setState({
         videos,
         selectedVideo: videos[0],
@@ -25,15 +25,17 @@ class App extends Component {
   }
 
   render() {
-    const videoSearch = _.debounce((term) => { this.videoSearch(term)}, 500);
+    const videoSearch = _.debounce(term => {
+      this.videoSearch(term);
+    }, 500);
 
     return (
       <div>
         <SearchBar onSearchTermChange={videoSearch} />
         <VideoDetail video={this.state.selectedVideo} />
         <VideoList
-          onVideoSelect={selectedVideo => this.setState({selectedVideo})}
-          videos={ this.state.videos }
+          onVideoSelect={selectedVideo => this.setState({ selectedVideo })}
+          videos={this.state.videos}
         />
       </div>
     );

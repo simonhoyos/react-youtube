@@ -1,5 +1,5 @@
 {
-  "**/*.css": ["yarn lint:css", "git add"],
-  "**/*.js": ["yarn lint", "git add"],
+  "src/**/*.css": ["yarn lint:css", "git add"],
+  "src/**/*.js": ["yarn lint:js", "git add"],
   "**/*.{js,md,json}": ["prettier --write", "git add"]
 }
